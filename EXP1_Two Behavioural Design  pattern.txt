@@ -1,0 +1,28 @@
+public class Logger {
+    // Private constructor to prevent instantiation
+    private Logger() {
+    }
+
+    // Static inner class responsible for holding the Singleton instance
+    private static class LoggerHolder {
+        private static final Logger INSTANCE = new Logger();
+    }
+
+    // Global point of access
+    public static Logger getInstance() {
+        return LoggerHolder.INSTANCE;
+    }
+
+    public void log(String message) {
+        // In a real-world application, you would write this message to a log file
+        System.out.println(message);
+    }
+}
+
+// Usage
+public class Main {
+    public static void main(String[] args) {
+        Logger logger1 = Logger.getInstance();
+        Logger logger2 = Logger.getInstance();
+
+        logger1.log("This is the first log
